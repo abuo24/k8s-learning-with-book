@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: batch-job
+spec: 
+  template:  # Describes the pod that will be created by the Job
+    metadata:
+      labels: 
+        app: batch-job  # Adds a label to the pod for identification
+    spec:
+      restartPolicy: OnFailure  # Specifies that the pod should be restarted only if it fails
+      containers:
+        - name: main  # The name of the container within the pod
+          image: luksa/batch-job  # The Docker image to use for the container

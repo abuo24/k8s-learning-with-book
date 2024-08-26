@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-mine2
+spec:
+  nodeSelector:
+    gpu: "true"
+  containers:
+    - name: kubia-mine
+      image: luksa/kubia
+      ports:
+        - name: http
+          containerPort: 8080
+        - name: https
+          containerPort: 8443
